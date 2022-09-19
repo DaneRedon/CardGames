@@ -2,16 +2,23 @@
 # Class CardGame
 # Various CardGames in code form
 
+# DESC: 
+# base class for variouscard games
+# full game details are determined by derived classes
+
+# NOTES:
+# further adaptation to specifics in derived classes
+
 from array import array
 from pydoc import doc
 
-
-#Card Arrays (separated to allow different card types for different games)
-CardTypes = {1,2,3,4,5,6,7,8,9,10,"Jack","Queen","King","Ace"}
-CardSuits = {"Hearts","Clubs","Diamonds","Spades"}
+# GLOBAL VARS
+# card arrays (separated to allow different card types for different games)
+CardTypes = {2,3,4,5,6,7,8,9,10,"Jack","Queen","King","Ace"} #Ordered *typical* lowest to highest suit value
+CardSuits = {"Clubs","Diamonds","Hearts","Spades"} #Ordered lowest to highest suit value
 
 class CardGame:
-
+    # base class for various card games
     def __init__(self, name, cards=False):
         self.cards = cards or self.CreateBaseDeck52()
         self.name = name
@@ -23,7 +30,7 @@ class CardGame:
         for type in CardTypes:
             for suit in CardSuits:
                 newDeck.append({"type": type, "suit": suit})
-                # print(newDeck[len(newDeck)-1])
         return newDeck
-            
+
+
 War = CardGame("War")
